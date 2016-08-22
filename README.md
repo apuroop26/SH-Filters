@@ -1,2 +1,3 @@
 # SH-Filters
-git add.
+
+applying filters to audio files

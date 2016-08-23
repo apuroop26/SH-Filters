@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html>
+
+<style>
+    form {
+        border: 3px solid #f1f1f1;
+        width: 500px;
+
+
+    }
+
+    input[type=text], input[type=password] {
+        width: 400;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing:10px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 400;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+<h1><center>APPLYING FILTERS</center></h1>
+<h2><center>LOGIN</center></h2>
+
+<form action="filter.html" >
+
+    <div class="container">
+        <center><label><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required></br></center>
+
+        <center><label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required></br></center>
+
+        <center> <button type="submit" value="applyfilters">Login</button></br></center>
+
+
+
+
+    </div>
+</form>
+
+<style>
+    form {
+        border: 3px solid #f1f1f1;
+        width: 500px;
+        margin: 0 auto;
+    }
+
+    input[type=email], input[type=text], input[type=password] {
+        width: 400;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing:10px;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 400;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+</style>
+<body>
+
+<h2><center>REGISTER</center></h2>
+
+<form action="filter.html">
+    <!--    <div class="imgcontainer">
+            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>-->
+    <div class="container">
+        <center><label><b>Email id</b></label>
+            <input type="text" placeholder="Enter Email id" name="email" required></center>
+
+
+        <div class="container">
+            <center><label><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required></br></center>
+
+            <center><label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required></br></center>
+
+            <center> <button type="submit" value="applyfilters">Login</button></br></center>
+
+
+            <div class="container" style="background-color:#f1f1f1" align="right">
+                <button type="button" class="cancelbtn">Cancel</button>
+
+            </div>
+
+</form>
+
+
+</body>
+
+</html>

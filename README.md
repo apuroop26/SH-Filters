@@ -1,3 +1,4 @@
 # SH-Filters
 
-applying filters to audio files
+In frontend we created webpage and added initial option to upload audio file.
+most click to go features are working.

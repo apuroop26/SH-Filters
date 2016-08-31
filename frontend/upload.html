@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-<form action="play.html">
+<form>
 
     <!--
      <form action="demo_form.asp">
@@ -54,10 +54,22 @@
             <label for="InputFile">File input</label>
             <input type="file" name="InputAudio" accept="audio/mpeg" id="InputFile">
             <p class="help-block">Upload the audio file.</p>
+              <button type="submit" class="btn btn-success" id="ButtonSubmit" onclick="myFunction()">Submit</button>
+              <p id="Demo"></p>
           </div>
       </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+
+
+    <script>
+        function myFunction(){
+            var Path = document.getElementById("InputFile").value;
+            var file = Path.replace(/^.*[\\\/]/, '');
+            document.getElementById('InputFile').play();
+
+        }
+    </script>
+
 </form>
 </body>
 </html>

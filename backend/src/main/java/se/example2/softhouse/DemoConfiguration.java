@@ -1,17 +1,32 @@
 package se.example2.softhouse;
 
+import com.bazaarvoice.dropwizard.assets.AssetsBundleConfiguration;
+import com.bazaarvoice.dropwizard.assets.AssetsConfiguration;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sun.istack.internal.NotNull;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.PooledDataSourceFactory;
 import org.hibernate.validator.constraints.NotEmpty;
-import com.sun.istack.internal.NotNull;
+
+
 import javax.validation.Valid;
 
 /**
  * Created by hxs on 2016-08-16.
  */
-public class DemoConfiguration extends Configuration {
+public class DemoConfiguration extends Configuration implements AssetsBundleConfiguration{
+
+
+
+    @Valid
+    @javax.validation.constraints.NotNull
+    @JsonProperty
+    private final AssetsConfiguration assets = new AssetsConfiguration();
+
+    public AssetsConfiguration getAssetsConfiguration() {
+        return assets;
+    }
 
     @NotEmpty
     private String template;

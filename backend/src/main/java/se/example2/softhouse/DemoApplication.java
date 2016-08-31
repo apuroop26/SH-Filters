@@ -1,5 +1,6 @@
 package se.example2.softhouse;
 
+import com.bazaarvoice.dropwizard.assets.ConfiguredAssetsBundle;
 import com.google.common.base.Joiner;
 import io.dropwizard.Application;
 import io.dropwizard.jdbi.DBIFactory;
@@ -18,6 +19,8 @@ import javax.servlet.FilterRegistration;
 import java.sql.SQLException;
 import java.util.EnumSet;
 
+//import io.dropwizard.Bundle;
+
 public class DemoApplication extends Application<DemoConfiguration> {
 
     public static void main(String[] args) throws Exception {
@@ -32,13 +35,15 @@ public class DemoApplication extends Application<DemoConfiguration> {
     }
 
     @Override
-    public void initialize(Bootstrap<DemoConfiguration> bootstrap) {
+    public void initialize(Bootstrap<DemoConfiguration> configuration) {
+        configuration.addBundle( new ConfiguredAssetsBundle("/assets/", "/", "UploadAudioFile.html" ));
         // nothing to do yet
     }
 
+
     @Override
     public void run(DemoConfiguration configuration, Environment environment) throws SQLException {
-       configureCrossOriginFilter(configuration, environment);
+        configureCrossOriginFilter(configuration, environment);
         environment.jersey().register(MultiPartFeature.class);
 
         //resources
@@ -50,17 +55,15 @@ public class DemoApplication extends Application<DemoConfiguration> {
         FilterDAO filterDAO = jdbi.onDemand(FilterDAO.class);
         filterDAO.createFilterTable();
 
-
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
                 configuration.getDefaultName());
-
         final AudioResource AudioResource = new AudioResource();
 
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
 
-        environment.jersey().register(resource);
-        environment.jersey().register(AudioResource);
+       environment.jersey().register(resource);
+       environment.jersey().register(AudioResource);
     }
 
     private void configureCrossOriginFilter(DemoConfiguration configuration, Environment environment) {
@@ -77,7 +80,6 @@ public class DemoApplication extends Application<DemoConfiguration> {
         filter.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "GET,POST,PUT,DELETE");
         filter.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
     }
-
 
 
 }

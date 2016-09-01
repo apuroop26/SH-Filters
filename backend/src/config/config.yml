@@ -1,0 +1,20 @@
+template: Hello, %s!
+defaultName: Stranger
+
+
+
+assets:
+  overrides:
+    /: ../frontend/
+
+server:
+  rootPath: '/api/*'
+  applicationConnectors:
+      - type: http
+        port: 8080
+
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  password: sa
+  url: jdbc:h2:~/target/filter.db

@@ -14,51 +14,6 @@
 </head>
 <script>
 
-  $(document).ready(function () {
-
-    $("#cpass").keyup(validate);
-  });
-
-  function validate()
-  {
-
-    var p1=$("#inpass").val();
-    var p2 = $("#cpass").val();
-    if(p1 && p2 == null){
-      $("#validate").hide();
-    }
-    if(p1 == p2)
-    {
-      //$("#validate").class("glyphicon glyphicon-ok");
-      //$("#validate").style("color:green");
-      // $("#validate").text("Passwordsmatch");
-
-      $("#validate").html("<p style='color:green;width:100%;font-size:15px;'><span class='glyphicon glyphicon-ok'></span>Passwords match</p>");
-    }
-    else{
-      //$("#validate").class("glyphicon glyphicon-remove");
-      // $("#validate").style("color:red");
-      //$("#validate").text("Passwords do not match");
-
-      $("#validate").html("<p style='color:red;width:100%;font-size:15px;'><span class='glyphicon glyphicon-remove'></span>Passwords do not match</p>");
-
-    }
-  }
-  $(document).ready(function () {
-
-    $("#cpass").keyup(validate);
-  });
-
-
-  $('#logmodreglink').click(function() {
-    $('#loginModal').modal('hide');
-  });
-  $('#loginbtn').click(function() {
-    $('#registerModal').modal('hide');
-  });
-  $('#reglink').click(function() {
-    $('#loginModal').modal('hide');
-  });
 
   // upload button js
   $('#inputbtn').click(function(){
@@ -68,45 +23,7 @@
   {
     $('.googbtn').css('color','blue');
   });
-  //upload tab pane script
-  jQuery(function () {
-    jQuery('#inpsel').tab('show');
-  });
-  var obj = $('#draganddrophandler');
-  obj.on('dragenter',function(e){
-    e.stopPropagation();
-    e.preventDefault();
-    $(this).css('border','2px solid #0B85A1');
-  });
-  obj.on('dragover',function(e){
-    e.stopPropagation();
-    e.preventDefault();
-  });
-  obj.on('drop',function(e){
-    $(this).css('border','2px dotted #0B85A1');
-    e.preventDefault();
-    var files=e.originalEvent.dataTransfer.files;
 
-    //Server upload
-    handleFileUpload(files,obj);
-  });
-  //files dropped on the window
-  $(document).on('dragenter', function (e)
-  {
-    e.stopPropagation();
-    e.preventDefault();
-  });
-  $(document).on('dragover', function (e)
-  {
-    e.stopPropagation();
-    e.preventDefault();
-    obj.css('border', '2px dotted #0B85A1');
-  });
-  $(document).on('drop', function (e)
-  {
-    e.stopPropagation();
-    e.preventDefault();
-  });
   //reading the file contents
   function handleFileUpload(files,obj)
   {

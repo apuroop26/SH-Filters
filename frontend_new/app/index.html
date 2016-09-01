@@ -49,31 +49,7 @@
     $("#cpass").keyup(validate);
   });
 
-  function validate()
-  {
 
-    var p1=$("#inpass").val();
-    var p2 = $("#cpass").val();
-    if(p1 && p2 == null){
-      $("#validate").hide();
-    }
-    if(p1 == p2)
-    {
-      //$("#validate").class("glyphicon glyphicon-ok");
-      //$("#validate").style("color:green");
-      // $("#validate").text("Passwordsmatch");
-
-      $("#validate").html("<p style='color:green;width:100%;font-size:15px;'><span class='glyphicon glyphicon-ok'></span>Passwords match</p>");
-    }
-    else{
-      //$("#validate").class("glyphicon glyphicon-remove");
-      // $("#validate").style("color:red");
-      //$("#validate").text("Passwords do not match");
-
-      $("#validate").html("<p style='color:red;width:100%;font-size:15px;'><span class='glyphicon glyphicon-remove'></span>Passwords do not match</p>");
-
-    }
-  }
   $('#logmodreglink').click(function() {
     $('#loginModal').modal('hide');
   });
@@ -225,7 +201,7 @@
 
 <!-- Upload_modal-->
 <div class="modal fade" id="upload_modal" ng-controller="AudioController">
-  <div class="modal-dialog">
+  <div class="modal-dialog" id="upload">
     <div class="modal-content">
       <div class="modal-body">
         <ul class="nav nav-tabs nav-justified" id="up_tabs" role="tablist">
@@ -248,7 +224,7 @@
                     Browse <input type="file" style="display: none;" ng-model="upFile" id="upFile" name="upFile">
                   </label>
                 </div>
-                <div class="col-md-4" style="color:#292C2F;font-family:'Trebuchet MS';text-align: center;margin-top:10px;">
+                <div class="col-md-4" style="color:#292C2F;text-align: center;margin-top:10px;">
                   <div class="fileselected"></div>
                   <div><button type="submit" class="btn btn-primary">Upload</button></div>
                 </div>

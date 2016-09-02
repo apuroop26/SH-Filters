@@ -3,7 +3,7 @@ package se.example2.softhouse.Resource;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import se.example2.softhouse.Resource.Core.Saying;
-import se.example2.softhouse.Resource.Core.upload;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -29,10 +29,10 @@ public class HelloWorldResource {
         return new Saying(counter.incrementAndGet(), value);
     }
     @POST
-    @Path("/{text}")
+    @Path("/{r}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void addNote(upload newNote) {
-        String noteadded = null;
-        newNote.setId(noteadded);
+    public void addNote(long newNote) {
+        long noteadded = newNote;
+        System.out.println(noteadded);
     };
 }

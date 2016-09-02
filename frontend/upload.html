@@ -56,16 +56,32 @@
     -->
       <div class="form-group">
           <div class="well">
-            <label for="InputFile">File input</label>
-            <input type="file" name="InputAudio" accept="audio/mpeg" id="InputFile">
+            <label for="file">File input</label>
+           <!-- <input type="file" name="InputAudio" accept="audio/mpeg" id="InputFile">-->
+              <input type="file" id="file" name="file"/>
+
             <p class="help-block">Upload the audio file.</p>
-              <button type="submit" class="btn btn-success" id="ButtonSubmit" onclick="ng-submit">Submit</button>
+              <!--<button type="submit" class="btn btn-success" id="ButtonSubmit" onclick="ng-submit">Submit</button>-->
+              <button ng-click="add()">Add</button>
               <p id="Demo"></p>
           </div>
       </div>
 
-
-
+    <script>$scope.add = function(uploadservice){
+    var f = document.getElementById('file').files[0],
+    r = new FileReader();
+    r.onloadend = function(e){
+    var data = e.target.result;
+    //send your binary data via $http or $resource or do anything else with it
+    }
+    r.readAsBinaryString(f);
+    }</script>
+<script>
+    function upload(r) {
+    return $http.post(toListURL, {long: r });
+    }
+    </script>
+<!--
     <script>
         function myFunction(){
             var title = document.getElementById("InputFile").value;
@@ -73,9 +89,9 @@
             document.getElementById('InputFile').play();
            */
         }
-    </script>
+    </script>-->
 
 
-</form>s
+</form>
 </body>
 </html>

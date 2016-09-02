@@ -3,11 +3,9 @@ package se.example2.softhouse.Resource;
 import com.codahale.metrics.annotation.Timed;
 import com.google.common.base.Optional;
 import se.example2.softhouse.Resource.Core.Saying;
+import se.example2.softhouse.Resource.Core.upload;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -30,4 +28,11 @@ public class HelloWorldResource {
         final String value = String.format(template, name.or(defaultName));
         return new Saying(counter.incrementAndGet(), value);
     }
+    @POST
+    @Path("/{text}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void addNote(upload newNote) {
+        String noteadded = null;
+        newNote.setId(noteadded);
+    };
 }

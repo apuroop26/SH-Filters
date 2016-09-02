@@ -36,7 +36,7 @@ public class DemoApplication extends Application<DemoConfiguration> {
 
     @Override
     public void initialize(Bootstrap<DemoConfiguration> configuration) {
-        configuration.addBundle( new ConfiguredAssetsBundle("/assets/", "/", "UploadAudioFile.html" ));
+        configuration.addBundle( new ConfiguredAssetsBundle("/assets/", "/", "Upload.html" ));
         // nothing to do yet
     }
 

@@ -5,8 +5,8 @@
  * Created by rohithvajhala on 01-09-2016.
  */
 /**
- * The noteService factory has the sole responsibility to communicate between the frontend application
- * and the backend application. You can think of it as a 'internal API' for our frontend application.
+ * The noteService factory has the sole responsibility to communicate between the frontend_old application
+ * and the backend application. You can think of it as a 'internal API' for our frontend_old application.
  *
  * @param $http the injected http service
  * @param $interpolate the injected interpolate service

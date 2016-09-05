@@ -16,39 +16,33 @@ import java.io.*;
 @Path("fileupload")
 public class AudioResource {
 
-	public AudioResource() {
-	}
+    public AudioResource() {
+    }
 
-	@POST
-	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
-			@FormDataParam("file") final FormDataContentDisposition fileDet) {
-		String uploadedFileLocation = "C:/uploadedFiles/" + fileDet.getFileName();
+    @POST
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
+                                    @FormDataParam("file") final FormDataContentDisposition fileDetail) throws IOException {
+        String uploadedFileLocation = "C:/uploadedFiles/" + fileDetail.getFileName();
 
-		// save it
-		saveToFile(uploadedInputStream, uploadedFileLocation);
+        // save it
+        writeToFile(uploadedInputStream, uploadedFileLocation);
+        String output = "File uploaded to: " + uploadedFileLocation;
+        return Response.ok(output).build();
+    }
 
-		String output = "File uploaded to: " + uploadedFileLocation;
-		return Response.status(200).entity(output).build();
-	}
+    private void writeToFile(InputStream uploadedInputStream, String uploadedFileLocation) throws IOException {
 
-	private void saveToFile(InputStream uploadedInputStream, String uploadedFileLocation) {
-
-		try {
-			OutputStream out = null;
-			int read = 0;
-			byte[] bytes = new byte[1024];
-
-			out = new FileOutputStream(new File(uploadedFileLocation));
-			while ((read = uploadedInputStream.read(bytes)) != -1) {
-				out.write(bytes, 0, read);
-			}
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-	}
+        //try {
+        //	OutputStream out = null;
+        int read;
+        final int BUFFER_LENGTH = 1024;
+        final byte[] buffer = new byte[BUFFER_LENGTH];
+        OutputStream out = new FileOutputStream(new File(uploadedFileLocation));
+        while ((read = uploadedInputStream.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
+        out.flush();
+        out.close();
+    }
 }

@@ -10,6 +10,7 @@ import org.eclipse.jetty.servlets.CrossOriginFilter;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.skife.jdbi.v2.DBI;
 import se.bth.softhouse.db.FilterDAO;
+import se.bth.softhouse.process.FilterProcess;
 import se.bth.softhouse.resources.AudioResource;
 import se.example2.softhouse.Resource.HelloWorldResource;
 import se.example2.softhouse.health.TemplateHealthCheck;
@@ -36,7 +37,7 @@ public class DemoApplication extends Application<DemoConfiguration> {
 
     @Override
     public void initialize(Bootstrap<DemoConfiguration> configuration) {
-        configuration.addBundle( new ConfiguredAssetsBundle("/assets/", "/", "Upload.html" ));
+        configuration.addBundle( new ConfiguredAssetsBundle("/assets/", "/", "UploadAudioFile.html" ));
         // nothing to do yet
     }
 
@@ -55,9 +56,14 @@ public class DemoApplication extends Application<DemoConfiguration> {
         FilterDAO filterDAO = jdbi.onDemand(FilterDAO.class);
         filterDAO.createFilterTable();
 
+
+        final FilterProcess filterProcess = new FilterProcess(filterDAO);
+
+
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
                 configuration.getDefaultName());
         final AudioResource AudioResource = new AudioResource();
+
 
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);

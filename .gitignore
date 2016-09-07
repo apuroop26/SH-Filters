@@ -1,2 +1,4 @@
 .idea/*
 .idea/vcs.xml
+.idea/
+frontend/App/js/shared/

@@ -34,5 +34,5 @@ public class HelloWorldResource {
     public void addNote(upload newNote) {
         String noteadded = null;
         newNote.setId(noteadded);
-    };
+    }
 }

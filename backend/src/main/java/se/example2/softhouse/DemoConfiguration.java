@@ -19,6 +19,7 @@ public class DemoConfiguration extends Configuration implements AssetsBundleConf
 
 
 
+
     @Valid
     @javax.validation.constraints.NotNull
     @JsonProperty

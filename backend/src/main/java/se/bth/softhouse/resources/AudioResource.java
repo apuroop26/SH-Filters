@@ -24,7 +24,7 @@ public class AudioResource {
 	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
 			@FormDataParam("file") final FormDataContentDisposition fileDet) {
 		//String uploadedFileLocation = "C:/uploadedFiles/" + fileDet.getFileName();
-		String uploadedFileLocation ="/Users/Suveen/Desktop/Vinnova/" + fileDet.getFileName();
+		String uploadedFileLocation ="/Users/Suveen/Desktop/Vinnova/Filters1/SH-Filters/backend/fileUploads/" + fileDet.getFileName();
 		// save it
 		saveToFile(uploadedInputStream, uploadedFileLocation);
 

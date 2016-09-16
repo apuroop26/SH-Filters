@@ -53,14 +53,43 @@ myApp.directive('fooTer',function(){
     };
 });
 
-myApp.directive('uploadFile',function(){
+myApp.directive('uploadFile',function($rootScope){
     return {
         restrict : 'E',
-        templateUrl : 'app/template/uploadFile.html'
+        templateUrl : 'app/template/uploadFile.html',
+        controller : function ($scope, $element) {
+            //var files = '';
+             var files = $element.on('change', function  ($evt) {
+                files = $evt.target.files;
+                //$rootScope.files = files;
+                console.log(files[0].name);
+                console.log(files[0].size);
+                return files[0].name;
+
+            });
+            $scope.files = files;
+
+
+            console.log(files);
+        },
+        //controllerAs : uploadController
     };
 });
 
 
-myApp.controller('myCtrl',function($scope){
+myApp.directive('audioPlay',function(){
+    return {
+        restrict : 'E',
+        templateUrl : 'app/template/audioPlay.html'
+    };
+});
+/*
+var getFileName = function(){
+    var fullPath = document.getElementById('exampleInputFile').value;
+    var fileName = fullPath.replace(/^.*[\\\/]/, '');
+    alert(fileName);
+} */
 
+myApp.controller('myCtrl',function($scope, $rootScope){
+$rootScope.fileName = '';
 });

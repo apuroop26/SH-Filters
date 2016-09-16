@@ -6,5 +6,16 @@ myApp.controller('submitController', ['$scope', 'multipartForm', function ($scop
     $scope.Submit = function(){
         var uploadUrl = '/api/fileupload';
         multipartForm.post(uploadUrl, $scope.customer );
+
     }
+/*
+    $scope.getFileName = function(){
+        var fullPath = document.getElementById('exampleInputFile').value;
+        var fileName = fullPath.replace(/^.*[\\\/]/, '');
+        alert(fileName);
+        return fileName;
+    }
+*/
+
+
 }])

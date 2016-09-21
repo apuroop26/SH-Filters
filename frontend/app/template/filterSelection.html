@@ -1,0 +1,49 @@
+
+<div ng-controller="myCtrl">
+    <form name = "filterSelection" ng-submit = "filterSelection1()">
+        <div class="container">
+            <div class="well">
+                <table>
+                    <tr>
+                        <td>
+                            <div class = "container">
+                                    <label class="radio">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" ng-model="filterType.type1" ng-required="!filterType.type1"> Filter-1
+                                    </label>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class = "container">
+                                    <label class="radio">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" ng-model="filterType.type2" ng-required="!filterType.type2"> Filter-2
+                                    </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class = "container">
+                                    <label class="radio">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" ng-model="filterType.type3" ng-required="!filterType.type3"> Filter-3
+                                    </label>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" data-ng-disabled="myForm.$invalid" class="btn btn-warning" value="submit">
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+        </div>
+    </form>
+</div>

@@ -4,10 +4,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.*;
@@ -19,12 +16,12 @@ public class AudioResource {
 	public AudioResource() {
 	}
 
-	@POST
+	@GET
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
 			@FormDataParam("file") final FormDataContentDisposition fileDet) {
-		String uploadedFileLocation = "/Users/Suveen/Desktop/Vinnova/SH-Filters_Master/backend/uploadedFiles/" + fileDet.getFileName();
-		//String uploadedFileLocation ="/C:/Users/apuroop/Desktop/uploads/" + fileDet.getFileName();
+		//String uploadedFileLocation = "/Users/Suveen/Desktop/Vinnova/SH-Filters_Master/backend/uploadedFiles/" + fileDet.getFileName();
+		String uploadedFileLocation ="C:/Users/apuroop/Desktop/SH-Filters/backend/uploadedFiles/" + fileDet.getFileName();
 		// save it
 		saveToFile(uploadedInputStream, uploadedFileLocation);
 
@@ -52,3 +49,5 @@ public class AudioResource {
 
 	}
 }
+
+

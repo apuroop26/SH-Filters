@@ -6,8 +6,9 @@ import org.skife.jdbi.v2.sqlobject.SqlQuery;
 import org.skife.jdbi.v2.sqlobject.SqlUpdate;
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapperFactory;
 import org.skife.jdbi.v2.tweak.BeanMapperFactory;
-
 import java.util.List;
+
+
 
 @RegisterMapperFactory(BeanMapperFactory.class)
 public interface FilterDAO {

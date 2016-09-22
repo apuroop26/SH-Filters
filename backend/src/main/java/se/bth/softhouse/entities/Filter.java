@@ -1,5 +1,4 @@
 package se.bth.softhouse.entities;
-
 import com.sun.istack.internal.NotNull;
 
 public class Filter {

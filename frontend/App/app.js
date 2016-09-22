@@ -4,6 +4,40 @@
 
 var myApp = angular.module('myApp',[]);
 
+
+myApp.controller('myCtrl',['$scope',function($scope,filterService){
+
+        $scope.filterSelection1 = function() {
+            alert("seen");
+            filterService.passChoise($scope.filterType);
+
+        };
+        // $rootScope.fileName = '';
+        $scope.suveen = 10;
+
+    }]
+);
+
+myApp.factory('filterService',['$http',function($http){
+    var fac = {};
+
+    fac.passChoise = function(player)
+    {
+        $http.post("/api/fileupload", player).success(function(response){
+            alert(response.status);
+        })
+    }
+
+    return fac;
+}]);
+
+myApp.directive('filterChoice',function(){
+    return {
+        restrict : 'E',
+        templateUrl : 'app/template/filterSelection.html'
+    };
+})
+
 myApp.directive('navbarJumbotron',function(){
     return {
         restrict : 'E',
@@ -53,14 +87,52 @@ myApp.directive('fooTer',function(){
     };
 });
 
-myApp.directive('uploadFile',function(){
+
+
+myApp.directive('uploadFile',function($rootScope){
     return {
         restrict : 'E',
-        templateUrl : 'app/template/uploadFile.html'
+        templateUrl : 'app/template/uploadFile.html',
+        controller : function ($scope, $element) {
+            //var files = '';
+             var files = $element.on('change', function  ($evt) {
+                files = $evt.target.files;
+                //$rootScope.files = files;
+                console.log(files[0].name);
+                console.log(files[0].size);
+                return files[0].name;
+
+            });
+            $scope.files = files;
+
+
+            console.log(files);
+        },
+        //controllerAs : uploadController
     };
 });
 
 
-myApp.controller('myCtrl',function($scope){
-
+myApp.directive('audioPlay',function(){
+    return {
+        restrict : 'E',
+        templateUrl : 'app/template/audioPlay.html'
+    };
 });
+
+myApp.directive('fileControl',function(){
+    return {
+        restrict : 'E',
+        templateUrl : 'app/filterControl/filterControl.html',
+    };
+});
+
+
+/*
+var getFileName = function(){
+    var fullPath = document.getElementById('exampleInputFile').value;
+    var fileName = fullPath.replace(/^.*[\\\/]/, '');
+    alert(fileName);
+} */
+
+

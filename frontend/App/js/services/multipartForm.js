@@ -12,3 +12,4 @@ myApp.service('multipartForm',['$http',function($http){
         })
     }
 }])
+

@@ -55,8 +55,8 @@ public class DemoApplication extends Application<DemoConfiguration> {
         FilterDAO filterDAO = jdbi.onDemand(FilterDAO.class);
         filterDAO.createFilterTable();
 
-        final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
-                configuration.getDefaultName());
+         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
+             configuration.getDefaultName());
         final AudioResource AudioResource = new AudioResource();
 
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
@@ -80,6 +80,5 @@ public class DemoApplication extends Application<DemoConfiguration> {
         filter.setInitParameter(CrossOriginFilter.ALLOWED_METHODS_PARAM, "GET,POST,PUT,DELETE");
         filter.setInitParameter(CrossOriginFilter.ALLOW_CREDENTIALS_PARAM, "true");
     }
-
 
 }

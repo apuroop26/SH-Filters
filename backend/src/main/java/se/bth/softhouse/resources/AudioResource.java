@@ -15,7 +15,7 @@ import java.io.*;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("fileupload")
 public class AudioResource {
-
+ public String Pathname;
 	public AudioResource() {
 	}
 
@@ -23,14 +23,16 @@ public class AudioResource {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
 			@FormDataParam("file") final FormDataContentDisposition fileDet) {
-		String uploadedFileLocation = "/Users/Suveen/Desktop/Vinnova/SH-Filters_Master/frontend/uploadedFiles/" + fileDet.getFileName();
+		String uploadedFileLocation = "./uploadedFiles/" + fileDet.getFileName();
 		//String uploadedFileLocation ="/C:/Users/apuroop/Desktop/uploads/" + fileDet.getFileName();
 		// save it
+		this.Pathname = uploadedFileLocation;
 		saveToFile(uploadedInputStream, uploadedFileLocation);
 
 		String output = "File uploaded to: " + uploadedFileLocation;
 		return Response.status(200).entity(output).build();
 	}
+
 
 	private void saveToFile(InputStream uploadedInputStream, String uploadedFileLocation) {
 
@@ -51,4 +53,10 @@ public class AudioResource {
 		}
 
 	}
+
+	public String sendpath(){
+		return Pathname;
+	}
+
+
 }

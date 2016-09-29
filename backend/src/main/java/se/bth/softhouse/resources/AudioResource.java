@@ -28,6 +28,11 @@ public class AudioResource {
 
 	}
 
+	//@GET
+	//@Path("/uploadedaudio")
+	//@Produces(MediaType.MULTIPART_FORM_DATA)
+
+
 	@POST
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
@@ -40,9 +45,10 @@ public class AudioResource {
 		pathDao.insertpaths(Pathname);
 		 this.k=1;
 		saveToFile(uploadedInputStream, uploadedFileLocation);
-
+		//System.out.println(uploadedInputStream);
 		String output = "File uploaded to: " + uploadedFileLocation;
 		return Response.status(200).entity(output).build();
+
 	}
  public int controlpath()
  {

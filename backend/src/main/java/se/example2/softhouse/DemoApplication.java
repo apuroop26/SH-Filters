@@ -57,13 +57,13 @@ public class DemoApplication extends Application<DemoConfiguration> {
 
          final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(),
              configuration.getDefaultName());
-        final AudioResource AudioResource = new AudioResource();
+        //final AudioResource AudioResource = new AudioResource();
 
         final TemplateHealthCheck healthCheck = new TemplateHealthCheck(configuration.getTemplate());
         environment.healthChecks().register("template", healthCheck);
 
        environment.jersey().register(resource);
-       environment.jersey().register(AudioResource);
+       //environment.jersey().register(AudioResource);
     }
 
     private void configureCrossOriginFilter(DemoConfiguration configuration, Environment environment) {

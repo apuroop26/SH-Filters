@@ -1,5 +1,6 @@
 package se.bth.softhouse.db;
 
+
 import org.junit.runner.manipulation.Filter;
 import org.skife.jdbi.v2.sqlobject.Bind;
 import org.skife.jdbi.v2.sqlobject.SqlQuery;

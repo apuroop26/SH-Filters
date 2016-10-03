@@ -115,7 +115,7 @@ myApp.directive('uploadFile',function($rootScope){
 
 myApp.directive('audioPlay',function(){
     return {
-        restrict : 'E',
+
         templateUrl : 'app/template/audioPlay.html'
     };
 });

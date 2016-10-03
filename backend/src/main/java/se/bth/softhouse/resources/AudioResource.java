@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.*;
 import java.util.List;
-
+import java.applet.*;
 @Produces(MediaType.APPLICATION_JSON)
 @Path("fileupload")
 public class AudioResource {
@@ -40,8 +40,11 @@ public class AudioResource {
 		pathDao.insertpaths(Pathname);
 		 this.k=1;
 		saveToFile(uploadedInputStream, uploadedFileLocation);
+        String output = "File uploaded to: " + uploadedFileLocation;
 
-		String output = "File uploaded to: " + uploadedFileLocation;
+
+
+
 		return Response.status(200).entity(output).build();
 	}
  public int controlpath()

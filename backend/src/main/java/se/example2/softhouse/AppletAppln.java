@@ -13,7 +13,8 @@ import java.net.URL;
 public class AppletAppln extends Applet implements ActionListener {
     Button play,stop;
     AudioClip audioClip;
-    public void init(){
+    public AppletAppln(){};
+   public void init(){
         play = new Button("  Play ");
         add(play);
         play.addActionListener(this);

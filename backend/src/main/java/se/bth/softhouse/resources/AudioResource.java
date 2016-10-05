@@ -4,6 +4,7 @@ import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 import se.bth.softhouse.db.PathDao;
 import se.bth.softhouse.entities.paths;
+import se.example2.softhouse.AppletAppln;
 
 
 import javax.ws.rs.*;
@@ -32,7 +33,7 @@ public class AudioResource {
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
 	public Response uploadAudioFile(@FormDataParam("file") final InputStream uploadedInputStream,
 			@FormDataParam("file") final FormDataContentDisposition fileDet) {
-		String uploadedFileLocation = "./uploadedFiles/" + fileDet.getFileName();
+		 String uploadedFileLocation = "../frontend/uploadedfiles/" + fileDet.getFileName();
 		//String uploadedFileLocation ="/C:/Users/apuroop/Desktop/uploads/" + fileDet.getFileName();
 		// save it
 		this.Pathname = uploadedFileLocation;
@@ -47,11 +48,6 @@ public class AudioResource {
 
 		return Response.status(200).entity(output).build();
 	}
- public int controlpath()
- {
-
- 	return k;
- }
 
 
 	private void saveToFile(InputStream uploadedInputStream, String uploadedFileLocation) {
@@ -75,9 +71,9 @@ public class AudioResource {
 	}
 
 	public String sendpath(){
-		//this.Pathname="C:/Users/rohith/Desktop/softhouse/22-09-16/SH-Filters/backend/uploadedFiles";
-		System.out.println("2nd");
-		System.out.println(Pathname+"2nd");
+		this.Pathname="C:/Users/rohith/Desktop/softhouse/22-09-16/SH-Filters/backend/uploadedFiles";
+		//System.out.println("2nd");
+		//System.out.println(Pathname+"2nd");
 		return Pathname;
 	}
 

@@ -15,8 +15,23 @@ myApp.controller('myCtrl',['$scope',function($scope,filterService){
         // $rootScope.fileName = '';
         $scope.suveen = 10;
 
+    $scope.songname = function myFunction(){
+        var x = document.getElementById("exampleInputFile");
+        var txt = "";
+        for (var i = 0; i < x.files.length; i++) {
+            var file = x.files[i];
+            songname1=file.name;
+            if ('name' in file) {
+                txt += "name: " + file.name + "<br>";
+            }
+        }
+        document.getElementById("demo").innerHTML = txt;
+        return songname1;
+    }
+
     }]
 );
+
 
 myApp.factory('filterService',['$http',function($http){
     var fac = {};
@@ -115,7 +130,7 @@ myApp.directive('uploadFile',function($rootScope){
 
 myApp.directive('audioPlay',function(){
     return {
-
+        restrict : 'E',
         templateUrl : 'app/template/audioPlay.html'
     };
 });

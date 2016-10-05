@@ -1,7 +1,7 @@
 /**
  * Created by Suveen on 07/09/16.
  */
-myApp.controller('submitController', ['$scope', 'multipartForm', function ($scope, multipartForm) {
+myApp.controller('submitController', ['$scope', 'multipartForm', function ($scope, multipartForm, $http) {
     $scope.customer = {};
     $scope.Submit = function(){
         var uploadUrl = '/api/fileupload';
@@ -17,5 +17,13 @@ myApp.controller('submitController', ['$scope', 'multipartForm', function ($scop
     }
 */
 
+  /*  $scope.customer1 = {};
+    $scope.play1 = function(){
+        var uploadUrl1 = '/api/path/all/';
+        console.log(uploadUrl1);
+        $http.get(uploadUrl1, $scope.customer );
+
+    }
+*/
 
 }])

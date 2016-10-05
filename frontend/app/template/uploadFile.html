@@ -4,10 +4,30 @@
            <form ng-controller="submitController">
                <div class="form-group">
                    <label for="exampleInputFile"></label>
-                   <input type="file" id="exampleInputFile" file-model = "customer.file">
+                   <input type="file" id="exampleInputFile" file-model="customer.file" multiple size="1"   onchange="myFunction()">
                </div>
                <button type="submit" class="btn btn-warning btn-lg" ng-click = "Submit()" >Upload</button>
+           </form>
+           <form  action= "audioplay1.html" method ="get" enctype="multipart/form-data" >
+               <p id="demo"></p>
+               <input type="submit" value="play">
            </form>
        </div>
     </div>
 </div>
+<script>
+    var songname;
+     function myFunction(){
+    var x = document.getElementById("exampleInputFile");
+    var txt = "";
+    for (var i = 0; i < x.files.length; i++) {
+        var file = x.files[i];
+        songname=file.name;
+            if ('name' in file) {
+            txt += "name: " + file.name + "<br>";
+        }
+}
+    document.getElementById("demo").innerHTML = txt;
+}
+
+</script>

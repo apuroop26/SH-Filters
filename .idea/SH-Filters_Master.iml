@@ -11,5 +11,6 @@
     <orderEntry type="library" name="angular" level="application" />
     <orderEntry type="library" name="angular" level="application" />
     <orderEntry type="library" name="jquery-3.1.0" level="application" />
+    <orderEntry type="library" name="jquery-latest" level="application" />
   </component>
 </module>
